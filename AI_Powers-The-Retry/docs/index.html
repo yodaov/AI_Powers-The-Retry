@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AI Power Foundry</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .modal {
+      position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.6); z-index: 9999;
+    }
+    .modal.open { display: flex; }
+    .modal-card {
+      background: #1c1c1c; color: #eee; padding: 16px; border: 1px solid #444; border-radius: 8px; width: 360px;
+    }
+    .modal-card input[type="password"], .modal-card input[type="text"] {
+      width: 100%; padding: 8px; margin: 8px 0; background: #111; color: #eee; border: 1px solid #333; border-radius: 4px;
+    }
+    .row { display: flex; align-items: center; gap: 8px; }
+    .btn { padding: 8px 12px; border: 1px solid #555; background: #222; color: #eee; cursor: pointer; border-radius: 4px; }
+    .btn:hover { background: #2a2a2a; }
+  </style>
+</head>
+<body>
+  <div class="ui">
+    <h1>⚡ AI Power Foundry</h1>
+    <div class="row" style="justify-content:center; gap:10px;">
+      <input id="promptInput" placeholder="Type a power, e.g. Banana..." />
+      <button id="generateBtn" class="btn">Generate Power</button>
+      <button id="changeKeyBtn" class="btn">Set API Key</button>
+    </div>
+    <pre id="brainstorm"></pre>
+  </div>
+
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+  <!-- BYOK modal -->
+  <div id="keyModal" class="modal">
+    <div class="modal-card">
+      <h3>Enter OpenAI API Key</h3>
+      <p style="font-size:12px; opacity:.8">
+        Your key is used only for this session and sent directly to the backend for your request.
+      </p>
+      <input id="keyInput" type="password" placeholder="sk-********************************" />
+      <div class="row" style="justify-content:space-between;">
+        <label class="row" style="font-size:12px;">
+          <input id="rememberTab" type="checkbox" />
+          Remember for this tab (sessionStorage)
+        </label>
+        <div>
+          <button id="cancelKey" class="btn">Cancel</button>
+          <button id="saveKey" class="btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
