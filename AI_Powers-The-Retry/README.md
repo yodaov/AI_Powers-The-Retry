@@ -16,3 +16,5 @@ Generate **AI-created game powers** instantly from text prompts.
 ## Deploy online
 - Deploy backend on **Render/Vercel/Railway**.
 - Deploy frontend on **GitHub Pages** (update `API_URL` in `main.js`).
+- 
+
